@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Magic Scent Chatbot</title>
   <style>
-    /* Corpo da página com fundo escuro e gradiente */
-    body {
+    
+    html, body {
       margin: 0;
       padding: 0;
+      overflow-x: hidden; /* evita scroll horizontal por sombras */
+    }
+    /* Corpo da página com fundo escuro e gradiente */
+    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #1f1c2c, #928dab);
       display: flex;
@@ -17,6 +21,7 @@
       justify-content: flex-start;
       min-height: 100vh;
       color: #fff;
+      padding-bottom: 20px;
     }
 
     header {
