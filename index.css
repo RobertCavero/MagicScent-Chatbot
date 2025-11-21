@@ -53,10 +53,7 @@ header h1 {
 .glass::before {
   content: "";
   position: absolute;
-  top: -2px;
-  right: -2px;
-  left: -2px;
-  bottom: -2px; /* border size */
+  inset: -3px; /* border size */
   border-radius: 15px;
   background: conic-gradient(
     from var(--angle),
