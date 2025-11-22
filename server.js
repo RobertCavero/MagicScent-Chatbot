@@ -7,7 +7,9 @@ const app = express();
 app.use(express.static(__dirname));
 
 // Carregar os perfumes
-const perfumes = JSON.parse(fs.readFileSync(path.join(__dirname, "perfumes-estoque.json"), "utf8"));
+const perfumes = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "perfumes-estoque.json"), "utf8")
+);
 
 // Rota principal -> envia index.html
 app.get("/", (req, res) => {

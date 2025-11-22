@@ -1,8 +1,6 @@
 @font-face {
   font-family: "Didot";
   src: url("font/TheanoDidot-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
 }
 
 html,
@@ -40,14 +38,11 @@ header {
     #fff7b1
   );
   background-size: 200% 100%; /* wide gradient for animation */
-  background-repeat: repeat;
 
   /* Clip background to text */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
-
   /* Animate the background position */
   animation: rainbowText 10s linear infinite;
 }
