@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Didot";
+  src: url("font/TheanoDidot-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html,
 body {
   margin: 0;
@@ -7,24 +14,51 @@ body {
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  background: linear-gradient(180deg, #0a0a2a, #1c1c4d);
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  color: #fff;
 }
 
 header {
-  width: 100%;
-  padding: 40px 20px 20px;
+  font-family: "Didot", sans-serif;
+  padding: 5px;
   text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+
+  /* Rainbow gradient for text */
+  background: linear-gradient(
+    90deg,
+    #fff7b1,
+    #ffd700,
+    #ffc700,
+    #e6b800,
+    #b8860b,
+    #ffd700,
+    #fff7b1
+  );
+  background-size: 200% 100%; /* wide gradient for animation */
+  background-repeat: repeat;
+
+  /* Clip background to text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+
+  /* Animate the background position */
+  animation: rainbowText 10s linear infinite;
 }
 
-header h1 {
-  font-size: 2.5rem;
-  margin: 0;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+@keyframes rainbowText {
+  0% {
+    background-position: 200% 0;
+  } /* start off-screen left */
+  100% {
+    background-position: 0 0;
+  } /* end at normal position */
 }
 
 /* CHATBOT CONTAINER */
@@ -35,56 +69,49 @@ header h1 {
   height: 600px;
   border-radius: 15px;
   overflow: hidden;
+  z-index: 1;
+  padding: 3px; /* optional: space for border animation */
+  box-sizing: border-box;
 }
 
-/* GLASS LAYER WITH ANIMATED RAINBOW BORDER */
-.glass {
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  left: -2px;
-  bottom: -2px;
-  border-radius: 15px;
-  z-index: 0;
-}
-
-/* Rainbow border background */
-.glass::before {
+.chatbot-container::before {
   content: "";
   position: absolute;
-  inset: -3px; /* border size */
+  inset: -4px; /* border size */
   border-radius: 15px;
   background: conic-gradient(
     from var(--angle),
-    #ff0000,
-    #ff7f00,
-    #ffff00,
-    #00ff00,
-    #0000ff,
-    #4b0082,
-    #8b00ff
+    white,
+    black,
+    white,
+    black,
+    white
   );
-  animation: rotate 2s linear infinite;
-  z-index: -1;
+  filter: blur(4px);
+  animation: rotate 5s linear infinite;
+  z-index: -2;
 }
-
-/* Inner mask to keep content clean */
-.glass::after {
+.chatbot-container::after {
   content: "";
   position: absolute;
-  inset: 3px;
+  inset: 4px;
   background: #000; /* inside background */
   border-radius: 15px;
   z-index: -1;
 }
 
 /* Allow iframe on top */
-iframe {
+.chatbot-container iframe {
   position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: none;
+  border-radius: 12px;
   z-index: 2;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
 }
 
 /* Needed for conic animation */
