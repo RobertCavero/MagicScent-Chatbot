@@ -33,7 +33,7 @@ O chatbot funciona de modo **online**, isto é, exige conexão com a internet.
 
 Para interagir com o protótipo inicial do *Magic Scent Chatbot*, acesse o link de liberação:
 
-**Link para o Chatbot:** `https://robertcavero.github.io/MagicScent-Chatbot/`
+**Link para o Chatbot:** [`https://robertcavero.github.io/MagicScent-Chatbot/`](https://robertcavero.github.io/MagicScent-Chatbot/)
 
 **Instruções de Uso:**
 
